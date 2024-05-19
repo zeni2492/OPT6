@@ -266,7 +266,7 @@ onBeforeUnmount(() => {
         display: none;
     }
     .slider {
-        width: 330px;
+        width: 350px;
         display: flex;
         margin: 0px auto;
         margin-top: 86px;
@@ -276,7 +276,6 @@ onBeforeUnmount(() => {
     .slider-item {
         width: 100%;
         overflow-x: hidden;
-
     }
 }
 </style>
