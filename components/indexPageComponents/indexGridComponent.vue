@@ -120,4 +120,11 @@ const DataStorage: IData[] = [
     margin: 0;
     margin-top: 10px;
 }
+
+@media screen and (max-width: 458px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+}
 </style>

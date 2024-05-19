@@ -1,17 +1,19 @@
 <template>
-    <div >
-        <indexFormComponent />
-    </div>
-    <h2 class="Intro">Плюсы использования сервиса «Компас» для анализа штрафов</h2>
-
-    <div  class="index-grid-container">
-        <div class="index-grid-wrapper">
-            <indexGridComponent />
+        <div class="index-form-wrapper">
+            <indexFormComponent />
         </div>
-    </div>
 
-    <h2 class="Documents">Документы</h2>
-    <indexSliderComponent />
+        <h2 class="Intro">Плюсы использования сервиса «Компас» для анализа штрафов</h2>
+
+        <div class="index-grid-container">
+            <div class="index-grid-wrapper">
+                <indexGridComponent />
+            </div>
+        </div>
+
+        <h2 class="Documents">Документы</h2>
+        <indexSliderComponent />
+
 </template>
 
 <script setup lang="ts">
@@ -22,25 +24,20 @@ import indexSliderComponent from '~/components/indexPageComponents/indexSliderCo
 
 <style scoped>
 
-
 .Intro {
     font-size: 34px;
-    margin: 0px;
     font-weight: 700;
-    margin-top: 98px;
-    text-align: center
+    text-align: center;
+    width: 100%;
 }
 
-.index-grid-container{
+.index-grid-container {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.index-grid-wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.index-grid-wrapper {
 }
 
 .Documents {
@@ -49,5 +46,23 @@ import indexSliderComponent from '~/components/indexPageComponents/indexSliderCo
     font-weight: 700;
     margin-top: 85px;
     text-align: center
+}
+
+@media screen and (max-width: 458px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .index-form-wrapper{
+        width: 70%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 }
 </style>

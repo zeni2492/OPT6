@@ -116,4 +116,45 @@ aside {
   background: inherit;
   color: #0584FE;
 }
+
+
+@media screen and (max-width: 450px) {
+  .Nav-link-container img{ 
+    width: 90px;
+    height: 30px;
+  }
+
+
+  nav {
+    width: 100%; /* Make the navigation links full width */
+    justify-content: space-between; /* Center items vertically */
+    height: 60px;
+    align-items: center;
+  }
+
+  .Nav-link {
+    margin: 10px 0; /* Add spacing between navigation links */
+  }
+
+  .PhoneNumber {
+    display: none; /* Hide the phone number on smaller screens */
+  }
+
+  aside {
+    flex-direction: column; /* Stack aside items vertically */
+  }
+
+  .registration-container {
+    display: none;
+  }
+
+  .Login {
+    margin: 10px 0; /* Add spacing for the login button */
+  }
+
+  .Registration {
+    margin: 10px 0; /* Add spacing for the registration button */
+    width: 100%; /* Make the registration button full width */
+  }
+}
 </style>

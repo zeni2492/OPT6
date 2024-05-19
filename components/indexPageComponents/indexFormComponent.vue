@@ -52,11 +52,10 @@
                 </div>
             </div>
             <div class="imagePc">
-                <img src="@/public/PcImage.png" alt="">
+                <img class="image" src="@/public/PcImage.png" alt="">
             </div>
         </nav>
     </form>
-
     <article @click="closeVideo" class="PopUpVideo">
         <div v-if="openPopUpVideo" class="PopUpVideo-container">
             <div class="PopUpVideo-content">
@@ -330,5 +329,87 @@ img {
     margin-top: 16px;
     color: #8F8F8F;
     font-weight: 400;
+}
+
+@media (max-width: 458px) {
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        margin-top: 250px;
+        margin-bottom: 318px;
+        width: 100%;
+    }
+
+    nav{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container{
+        width: 100%;
+        margin-top: 40px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        margin-left: 30px;
+    }
+    h1 {
+        font-size: 30px;
+        width: 300px
+    }
+
+    .input-container {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin-top: 10px;
+    }
+
+    .imagePc img{
+        width: 80%;
+        height: auto;
+        display: flex;
+        display: none;
+    } 
+    .Region{
+        width: 340px;
+    }
+    .Region-input{
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 0;
+    }
+    .Car-number-input{
+        width: 340px;
+    }
+    .transport-registration{
+        width: 340px;
+    }
+
+    .Check-penalties-button,
+    .About-service-button {
+        width: 100%;
+        justify-content: center;
+  }
+
+  .buttons-container{
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 340px;
+    justify-content: center;
+    align-items: center;
+}
+  
+
+    .About-service-button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }
 </style>
