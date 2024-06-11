@@ -1,19 +1,20 @@
 <template>
-        <div class="index-form-wrapper">
-            <indexFormComponent />
-        </div>
-
-        <h2 class="Intro">Плюсы использования сервиса «Компас» для анализа штрафов</h2>
-
-        <div class="index-grid-container">
-            <div class="index-grid-wrapper">
-                <indexGridComponent />
+            <div class="index-form-wrapper">
+                <indexFormComponent />
             </div>
-        </div>
+            
+            <div class="Intro-container">
+                <h2 class="Intro">Плюсы использования сервиса «Компас» для анализа штрафов</h2>
+            </div>
 
-        <h2 class="Documents">Документы</h2>
-        <indexSliderComponent />
+            <div class="index-grid-container">
+                <div class="index-grid-wrapper">
+                    <indexGridComponent />
+                </div>
+            </div>
 
+            <h2 class="Documents">Документы</h2>
+            <indexSliderComponent />
 </template>
 
 <script setup lang="ts">
@@ -24,20 +25,32 @@ import indexSliderComponent from '~/components/indexPageComponents/indexSliderCo
 
 <style scoped>
 
+.index-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.index-wrapper{
+    width: 100%;
+}
+
+.Intro-container{
+    display: flex;
+    justify-content: center;
+}
+
 .Intro {
     font-size: 34px;
     font-weight: 700;
-    text-align: center;
-    width: 100%;
+    width: 80%;
+    text-align: center
 }
 
 .index-grid-container {
     width: 100%;
     display: flex;
     justify-content: center;
-}
-
-.index-grid-wrapper {
 }
 
 .Documents {
@@ -48,17 +61,16 @@ import indexSliderComponent from '~/components/indexPageComponents/indexSliderCo
     text-align: center
 }
 
-@media screen and (max-width: 458px) {
+@media screen and (max-width: 508px) {
     .container {
         display: flex;
         flex-direction: column;
     }
 
     .index-form-wrapper{
-        width: 70%;
+        width: 100%;
         margin: 0;
         padding: 0;
-
     }
 
     h2 {

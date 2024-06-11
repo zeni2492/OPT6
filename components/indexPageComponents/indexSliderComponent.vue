@@ -6,7 +6,7 @@
                 <div class="slider-item-text">
                     <p class="slider-item-title">{{ item.CardTitle }}</p>
                     <p class="slider-item-description">{{ item.CartDescription }}</p>
-                    <button @click="redirect.redirectToPage(item.CardTitle)">Перейти</button>
+                    <button @click="useRedirect(item.Cardid)">Перейти</button>
                 </div>
             </div>
             <div class="arrow-right arrow" @click="slideRight"><img src="@/public/arrow-right.svg" alt=""></div>
@@ -19,44 +19,43 @@
 </template>
 
 <script setup lang="ts">
-import useRedirect from '@/customHooks/Redirect.js';
+import {useRedirect} from '~/customHooks/Redirect';
 
-const redirect = useRedirect();
 
 interface IData {
-    Cardid: number;
+    Cardid: number | string;
     CardTitle: string;
     CartDescription: string;
 }
 
 const DataStorage: IData[] = [
     {
-        Cardid: 1,
+        Cardid: 'LicensePage',
         CardTitle: 'Лицензионный договор',
         CartDescription: 'Механизм разбрасывания веерного типа приводится в действие от колес тележки, отличается простой и надежной конструкцией, не нуждается в смазке. '
     },
     {
-        Cardid: 2,
+        Cardid: 'PersonalPolicy',
         CardTitle: 'Политика обработки персональных данных',
         CartDescription: 'Радиус разброса ПГМ составляет до 3 метров и может регулироваться.'
     },
     {
-        Cardid: 3,
+        Cardid: 'PaymentInfo',
         CardTitle: 'Информация об оплате',
         CartDescription: 'Десятипозиционный переключатель дозировки расположен на ручке тележки и позволяет очень точно регулировать объем рассыпаемого реагента с учетом его массы и фракции.'
     },
     {
-        Cardid: 4,
+        Cardid: 'SliderElement4',
         CardTitle: 'Элемент слайдера 4',
         CartDescription: 'Текст элемента слайдера 4'
     },
     {
-        Cardid: 5,
+        Cardid: 'SliderElement5',
         CardTitle: 'Элемент слайдера 5',
         CartDescription: 'Текст элемента слайдера 5'
     },
     {
-        Cardid: 6,
+        Cardid: 'SliderElement6',
         CardTitle: 'Элемент слайдера 6',
         CartDescription: 'Текст элемента слайдера 6'
     },
@@ -65,15 +64,20 @@ const DataStorage: IData[] = [
 
 let itemsPerPage = 3;
 let currentPage = 0;
-
 const checkScreenWidth = () => {
-    if (window.innerWidth < 500) {
+    if (window.innerWidth < 1000) {
         itemsPerPage = 1;
-    } else {
+    } 
+    else if (window.innerWidth < 1200) {
+        itemsPerPage = 2;
+    }
+    else {
         itemsPerPage = 3;
     }
+    
     updateVisibleData();
 };
+
 
 
 
@@ -103,6 +107,7 @@ const slideLeft = () => {
 
 onMounted(() => {
     checkScreenWidth();
+
     window.addEventListener('resize', checkScreenWidth);
 });
 
@@ -261,14 +266,25 @@ onBeforeUnmount(() => {
     font-size: 18px;
 }
 
+@media screen and (max-width: 1080px) {
+    .arrow-left {
+        left: 70px;
+    }
+    .arrow-right {
+        right: 100px;
+    }
+}
+
 @media screen and (max-width: 450px) {
     .slider-dots {
         display: none;
     }
     .slider {
-        width: 350px;
+        width: 280px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
-        margin: 0px auto;
         margin-top: 86px;
         margin-bottom: 473px;
         justify-content: center;
@@ -276,6 +292,12 @@ onBeforeUnmount(() => {
     .slider-item {
         width: 100%;
         overflow-x: hidden;
+    }
+    .arrow-left {
+        left: -20px;
+    }
+    .arrow-right {
+        right: -20px;
     }
 }
 </style>

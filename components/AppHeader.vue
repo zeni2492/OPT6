@@ -8,28 +8,57 @@
           </div>
         </NuxtLink>
         <div class="Nav-link-container">
-          <NuxtLink class="Nav-link" to="/rate">Тарифы</NuxtLink>
+          <NuxtLink class="Nav-link" to="/EmptyPages/rate">Тарифы</NuxtLink>
         </div>
         <div class="Nav-link-container">
-          <NuxtLink class="Nav-link" to="/contact">Контакты</NuxtLink>
+          <NuxtLink class="Nav-link" to="/EmptyPages/contact">Контакты</NuxtLink>
         </div>
       </nav>
+      <div >
       <aside>
         <p class="PhoneNumber"> +7 495 118-44-22 </p>
         <div class="registration-container">
-          <button class="Login">Вход</button>
-          <button class="Registration">Регистрация</button>
+          <NuxtLink to="/EmptyPages/login">
+            <button class="Login">Вход</button>
+          </NuxtLink>
+          <NuxtLink to="/EmptyPages/Registration">
+            <button class="Registration">Регистрация</button>
+          </NuxtLink>
+        </div>
+        <div class="ThreeStripes-container">
+          <button class="ThreeStripes-button" @click="isMobile = !isMobile">
+            <img  class="ThreeStripes" :src="ThreeStripes" alt="">
+          </button>
         </div>
       </aside>
     </div>
+
+    <div class="mobile-registration" v-if="isMobile">
+      <div class="mobile-buttons-container">
+        <NuxtLink to="/EmptyPages/login">
+          <button class="Login">Вход</button>
+        </NuxtLink>
+        <NuxtLink to="/EmptyPages/Registration">
+          <button class="Registration">Регистрация</button>
+        </NuxtLink>
+      </div>
+      <p class="PhoneNumber-mobile"> +7 495 118-44-22 </p>
+    </div>
+  </div>
   </header>
+  
 </template>
 
 <script setup lang="ts">
+import ThreeStripes from '../public/three-line-horizontal-svgrepo-com.svg'
+
+const isMobile = ref(false);
+
+
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
   display: flex;
   flex-direction: row;
@@ -117,13 +146,77 @@ aside {
   color: #0584FE;
 }
 
+.ThreeStripes-container{
+  height: 60px;
+  display: none;
+  margin-left: 10px;
+}
+
+.ThreeStripes{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.ThreeStripes-button{
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.mobile-registration{
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  align-items: center;
+  background-image: linear-gradient(to right, #000, #1C2734);
+  justify-content: space-between;
+}
+
+.mobile-buttons-container{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 27px;
+  gap: 20px;
+}
+.PhoneNumber-mobile{
+  color: white;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 708px){
+  .container{
+    width: 90%;
+  }
+  .registration-container {
+    display: none;
+  }
+  .ThreeStripes-container{
+    display: flex;
+  }
+  .PhoneNumber-mobile{
+    display: none;
+  }
+  .mobile-registration{
+    justify-content: end;
+    margin-right: 20px;
+  }
+}
 
 @media screen and (max-width: 450px) {
   .Nav-link-container img{ 
     width: 90px;
     height: 30px;
   }
-
+  .PhoneNumber {
+    display: none;
+  }
 
   nav {
     width: 100%; /* Make the navigation links full width */
@@ -135,19 +228,10 @@ aside {
   .Nav-link {
     margin: 10px 0; /* Add spacing between navigation links */
   }
-
-  .PhoneNumber {
-    display: none; /* Hide the phone number on smaller screens */
-  }
-
   aside {
     flex-direction: column; /* Stack aside items vertically */
+    display: flex;
   }
-
-  .registration-container {
-    display: none;
-  }
-
   .Login {
     margin: 10px 0; /* Add spacing for the login button */
   }

@@ -307,19 +307,21 @@ img {
     justify-content: end;
     cursor: pointer;
     margin-bottom: 8px;
+    margin-right: 20px;
 }
 
 
 .PopUpVideo-container {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -331,29 +333,28 @@ img {
     font-weight: 400;
 }
 
-@media (max-width: 458px) {
-    form{
+@media screen and (max-width: 1080px) {
+    .image{
+        max-width: 100%;
         display: flex;
-        flex-direction: column;
-        width: 200px;
-        margin-top: 250px;
-        margin-bottom: 318px;
-        width: 100%;
+        align-items: center;
+    }
+    .imagePc{
+        max-width: 100%;
+    }
+    
+}
+
+@media (max-width: 508px) {
+    form{
+        margin-bottom: 218px;
     }
 
-    nav{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
 
     .form-container{
         width: 100%;
-        margin-top: 40px;
         flex-direction: column;
         display: flex;
-        justify-content: center;
-        margin-left: 30px;
     }
     h1 {
         font-size: 30px;
@@ -362,11 +363,15 @@ img {
 
     .input-container {
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         display: flex;
         justify-content: start;
         align-items: start;
         margin-top: 10px;
+    }
+
+    input{
+        width: 200px;
     }
 
     .imagePc img{
@@ -376,7 +381,7 @@ img {
         display: none;
     } 
     .Region{
-        width: 340px;
+        width: 250px;
     }
     .Region-input{
         margin-top: 10px;
@@ -384,15 +389,15 @@ img {
         margin-left: 0;
     }
     .Car-number-input{
-        width: 340px;
+        width: 250px;
     }
     .transport-registration{
-        width: 340px;
+        width: 250px;
     }
 
     .Check-penalties-button,
     .About-service-button {
-        width: 100%;
+        width: 270px;
         justify-content: center;
   }
 
@@ -401,15 +406,17 @@ img {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    width: 340px;
     justify-content: center;
-    align-items: center;
 }
   
 
     .About-service-button {
         margin-left: 0;
         margin-top: 10px;
+    }
+    video{
+        width: 90%;
+        height: auto;
     }
 }
 </style>

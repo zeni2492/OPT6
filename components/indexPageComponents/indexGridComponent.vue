@@ -71,6 +71,7 @@ const DataStorage: IData[] = [
 .grid-container {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .grid {
@@ -84,9 +85,7 @@ const DataStorage: IData[] = [
 
 
 .grid-item {
-    width: calc(
-        (100% - 60px)
-    );
+
     max-width: 100%;
     height: auto;
     display: flex;
@@ -104,7 +103,6 @@ const DataStorage: IData[] = [
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-    /* Add some spacing between the image and text */
 }
 
 .grid-item-title {
@@ -121,7 +119,14 @@ const DataStorage: IData[] = [
     margin-top: 10px;
 }
 
-@media screen and (max-width: 458px) {
+@media screen and (max-width: 1080px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+
+@media screen and (max-width: 708px) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
