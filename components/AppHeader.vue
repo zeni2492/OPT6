@@ -141,6 +141,13 @@ aside {
   transition: .2s all;
 }
 
+.registration-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
 .Registration:hover {
   background: inherit;
   color: #0584FE;
@@ -188,6 +195,17 @@ aside {
 .PhoneNumber-mobile{
   color: white;
   margin-right: 20px;
+}
+
+@media screen and (max-width: 933px){
+  .PhoneNumber{
+    display: none;
+  }
+  .registration-container{
+    flex-wrap: nowrap;
+
+  }
+  
 }
 
 @media screen and (max-width: 708px){

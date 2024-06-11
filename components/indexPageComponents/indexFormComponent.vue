@@ -150,7 +150,6 @@ h1 {
 .input-container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-top: 25px;
 }
@@ -164,7 +163,7 @@ label {
 
 
 .Car-number {
-    width: 100%;
+    width: 320px;
     height: 40px;
     outline: none;
     border-radius: 7px;
@@ -172,23 +171,19 @@ label {
     border: 1px solid #BCBCBC;
 }
 
-.Region-input {
-    justify-content: end;
-    margin-left: 25px;
-}
+
 
 .Region {
-    width: 80%;
+    width: 213px;
     height: 40px;
     border-radius: 7px;
     outline: none;
     border: 1px solid #BCBCBC;
-
+    margin-left: 20px;
 }
 
 .Car-number-input,
 .Region-input {
-    width: calc(50% - 10px);
     display: flex;
     flex-direction: column;
 }
@@ -201,7 +196,7 @@ label {
 }
 
 .transport-registration {
-    width: 90%;
+    width: 563px;
     height: 40px;
     border: 1px solid #BCBCBC;
     border-radius: 7px;
@@ -212,7 +207,6 @@ input {
     padding: 0px 0px 0px 10px;
     font-size: 15px;
     transition: 0.3s all;
-
 }
 
 input:focus {
@@ -235,7 +229,6 @@ input:focus {
 }
 
 .Check-penalties-button {
-    width: 210px;
     height: 45px;
     border-radius: 7px;
     background: #0584FE;
@@ -251,6 +244,7 @@ input:focus {
 .Check-penalties-button-text {
     margin-right: 10px;
     font-size: 18px;
+    white-space: nowrap;
 }
 
 .Check-penalties-button:hover {
@@ -272,6 +266,7 @@ input:focus {
     margin-left: 21px;
     transition: 0.3s all;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .About-service-button-text {
@@ -295,7 +290,7 @@ input:focus {
 .imagePc {
     max-width: 100%;
     width: 532px;
-    height: 335px;
+    margin-bottom: 24px;
 }
 
 img {
@@ -333,7 +328,7 @@ img {
     font-weight: 400;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1214px) {
     .image{
         max-width: 100%;
         display: flex;
@@ -342,15 +337,46 @@ img {
     .imagePc{
         max-width: 100%;
     }
+    nav{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
     
 }
 
-@media (max-width: 508px) {
-    form{
-        margin-bottom: 218px;
+@media (max-width: 720px) {
+    .buttons-container{
+        flex-direction: column;
+        width: 100%;
     }
 
+    .About-service-button {
+        margin-top: 10px;
+        margin-left: 0;
+        justify-content: center;
+    }
 
+    .Car-number-input{
+        width: 70%;
+    }
+
+    .Region-input{
+        width: 44%;
+    }
+    .Region{
+        width: 98%;
+    }
+
+    .input-container{
+        width: 100%;
+    }
+
+    .transport-registration{
+        width: 98%;
+    }
+}
+
+@media (max-width: 508px) {
     .form-container{
         width: 100%;
         flex-direction: column;
@@ -374,25 +400,19 @@ img {
         width: 200px;
     }
 
-    .imagePc img{
-        width: 80%;
-        height: auto;
-        display: flex;
-        display: none;
-    } 
-    .Region{
-        width: 250px;
-    }
     .Region-input{
         margin-top: 10px;
-        width: 100%;
-        margin-left: 0;
     }
-    .Car-number-input{
-        width: 250px;
+    .Region{
+        margin: 0;
+        width: 260px;
+    }
+
+    .Car-number{
+        width: 260px;
     }
     .transport-registration{
-        width: 250px;
+        width: 260px;
     }
 
     .Check-penalties-button,

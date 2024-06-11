@@ -38,12 +38,13 @@ import indexSliderComponent from '~/components/indexPageComponents/indexSliderCo
 .Intro-container{
     display: flex;
     justify-content: center;
+    margin-top: 74px;
 }
 
 .Intro {
     font-size: 34px;
     font-weight: 700;
-    width: 80%;
+    width: 60%;
     text-align: center
 }
 

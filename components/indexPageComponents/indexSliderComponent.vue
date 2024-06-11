@@ -14,6 +14,7 @@
         <div class="slider-dots">
             <span :class="{ active: currentPage === 0 }"></span>
             <span :class="{ active: currentPage === 1 }"></span>
+            <span v-if="itemsPerPage === 2" :class="{ active: currentPage === 2 }"></span>
         </div>
     </div>
 </template>
@@ -68,7 +69,7 @@ const checkScreenWidth = () => {
     if (window.innerWidth < 1000) {
         itemsPerPage = 1;
     } 
-    else if (window.innerWidth < 1200) {
+    else if (window.innerWidth < 1300) {
         itemsPerPage = 2;
     }
     else {
@@ -88,20 +89,19 @@ const updateVisibleData = () => {
 };
 
 const slideRight = () => {
-        currentPage++;
-        if(currentPage === 2){
-            currentPage = 0
-        }
-        updateVisibleData();
+    currentPage++;
+    if(currentPage === Math.ceil(DataStorage.length / itemsPerPage)){
+        currentPage = 0;
+    }
+    updateVisibleData();
 };
 
 const slideLeft = () => {
-    
-        currentPage--;
-        if(currentPage === -1){
-            currentPage = 1
-        }
-        updateVisibleData();
+    currentPage--;
+    if(currentPage === -1){
+        currentPage = Math.ceil(DataStorage.length / itemsPerPage) - 1;
+    }
+    updateVisibleData();
 };
 
 
@@ -266,12 +266,33 @@ onBeforeUnmount(() => {
     font-size: 18px;
 }
 
-@media screen and (max-width: 1080px) {
+@media (max-width: 1600px)and (max-width: 1300px ) {
     .arrow-left {
-        left: 70px;
+        left: -20px;
     }
     .arrow-right {
-        right: 100px;
+        right:20px;
+    }
+    .slider {
+        width: 580px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 1000px ) {
+    .arrow-left {
+        left: 20px;
+    }
+    .arrow-right {
+        right:20px;
+    }
+    .slider {
+        width: 480px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
